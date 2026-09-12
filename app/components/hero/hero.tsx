@@ -50,6 +50,7 @@ export function Hero(): ReactNode {
           </ScaleUnblur>
         </div>
       </div>
+      <div className='pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-b from-transparent via-background/70 to-background sm:h-48' />
     </section>
   )
 }
