@@ -5,7 +5,7 @@
       "name": "Next.js: debug app",
       "type": "node-terminal",
       "request": "launch",
-      "command": "npm run dev",
+      "command": "NEXT_DIST_DIR=.next-debug npm run dev -- --port 3001",
       "serverReadyAction": {
         "pattern": "- Local:.+(https?://\\S+)",
         "uriFormat": "%s",
