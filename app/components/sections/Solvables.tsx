@@ -11,12 +11,12 @@ type SolvableCard = {
 const SOLVABLE_CARDS: readonly SolvableCard[] = [
   {
     title: 'Automate the Busywork',
-    body: "Manual, repetitive work eating your team's time? I build the automation that gets it off their plate.",
+    body: "Manual work doesn't feel urgent, until it's eaten a full day of your team's week. I build the automation for that.",
     Icon: Sparkles
   },
   {
-    title: 'Refactor for Real Teams',
-    body: "Software that's hard to maintain or painful to use, I refactor it into something your team actually wants to work with.",
+    title: 'Refactor Before It Rots',
+    body: "Code gets harder to touch every month. I refactor it before it's unworkable. The UI/UX as well",
     Icon: Wrench
   },
   {
@@ -33,8 +33,9 @@ export default function Solvables() {
       className='mx-auto w-full max-w-275 px-6 pt-20 pb-10 sm:px-10 sm:pt-24'
     >
       <div className='flex flex-col'>
-        <h2 className='text-[2rem] leading-tight tracking-tight font-medium text-foreground sm:text-[2.35rem]'>
-          Ways I can help your team
+        <h2 className='pb-12 text-[2rem] leading-tight tracking-tight font-medium sm:text-[2.35rem]'>
+          <span className='text-foreground/75'>Everything is probably fine.</span>{' '}
+          <span className='text-foreground'>Until It Isn't</span>
         </h2>
 
         <div className='grid grid-cols-1 gap-5 md:grid-cols-3'>
