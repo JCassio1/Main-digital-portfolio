@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next.js: debug app",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "NEXT_DIST_DIR=.next-debug npm run dev -- --port 3001",
+      "serverReadyAction": {
+        "pattern": "- Local:.+(https?://\\S+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
+    }
+  ]
+}
