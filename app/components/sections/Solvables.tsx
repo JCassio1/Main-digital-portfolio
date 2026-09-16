@@ -30,9 +30,9 @@ export default function Solvables() {
   return (
     <section
       id='solvables'
-      className='mx-auto w-full max-w-275 px-6 pt-20 pb-10 sm:px-10 sm:pt-24'
+      className='solvables-section w-full px-6 pt-20 pb-10 sm:px-10 sm:pt-24'
     >
-      <div className='flex flex-col'>
+      <div className='mx-auto flex w-full max-w-275 flex-col'>
         <h2 className='pb-12 text-[2rem] leading-tight tracking-tight font-medium sm:text-[2.35rem]'>
           <span className='text-foreground/75'>Everything is probably fine.</span>{' '}
           <span className='text-foreground'>Until It Isn't</span>

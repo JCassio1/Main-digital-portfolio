@@ -49,6 +49,8 @@
 }
 
 :root {
+  --solvables-background: #f7f8ff;
+  --solvables-transition: #f7f8ff;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -84,6 +86,11 @@
 }
 
 .dark {
+  --solvables-background: linear-gradient(to bottom, #211347 0%, #211347 8%, transparent 32%),
+    radial-gradient(circle at 8% 0%, rgb(8 10 234 / 18%), transparent 38%),
+    radial-gradient(circle at 92% 42%, rgb(116 0 247 / 14%), transparent 42%),
+    radial-gradient(circle at 50% 100%, rgb(8 168 234 / 10%), transparent 38%), #211347;
+  --solvables-transition: #211347;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -115,6 +122,19 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+.solvables-section {
+  background: var(--solvables-background);
+}
+
+.hero-bottom-fade {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in srgb, var(--solvables-transition) 70%, transparent),
+    var(--solvables-transition)
+  );
 }
 
 @layer base {
