@@ -48,7 +48,6 @@ const WHAT_I_DO = [
   'Jira',
   'UI/UX Design',
   'Design Systems',
-  'Design Systems',
   'AI'
 ] as const
 
@@ -60,9 +59,7 @@ export default function Experience() {
     >
       <div className='mx-auto w-full max-w-275'>
         <div className='max-w-3xl'>
-          <p className='mb-4 text-sm font-medium tracking-[0.18em] text-[#a208ea] uppercase'>
-            Experience
-          </p>
+          <p className='mb-4 text-sm font-medium tracking-[0.18em] text-[#a208ea] uppercase'>Experience</p>
           <h2 className='text-[2rem] leading-tight font-medium tracking-tight sm:text-[2.8rem]'>
             Background & Capabilities
           </h2>
@@ -124,13 +121,7 @@ export default function Experience() {
   )
 }
 
-function Panel({
-  title,
-  children
-}: {
-  title: string
-  children: ReactNode
-}) {
+function Panel({ title, children }: { title: string; children: ReactNode }) {
   return (
     <article className='rounded-3xl border border-white/15 bg-[#1b1a1a] p-5 sm:p-6'>
       <h3 className='text-lg font-medium tracking-tight text-white'>{title}</h3>
