@@ -2,6 +2,7 @@
 
 import { RotateCcw } from 'lucide-react'
 import { useEffect, useRef, useState, type ReactNode } from 'react'
+import type { Body } from 'matter-js'
 
 type Chip = {
   label: string
@@ -52,7 +53,7 @@ const WALL_PAD = 16
 
 type ChipState = {
   chip: Chip
-  body: any
+  body: Body
   width: number
   height: number
 }
