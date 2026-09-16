@@ -16,7 +16,6 @@ const NAV_ITEMS: readonly NavItem[] = [
   { label: 'Solvables', href: '#solvables' },
   { label: 'Work', href: '#work' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Funny', href: '#funny' },
   { label: 'Contact', href: '#contact' }
 ]
 
