@@ -35,7 +35,7 @@ export default function Solvables() {
       <div className='mx-auto flex w-full max-w-275 flex-col'>
         <h2 className='pb-12 text-[2rem] leading-tight tracking-tight font-medium sm:text-[2.35rem]'>
           <span className='text-foreground/75'>Everything is probably fine.</span>{' '}
-          <span className='text-foreground'>Until It Isn't</span>
+          <span className='text-foreground'>Until It Isn&apos;t</span>
         </h2>
 
         <div className='grid grid-cols-1 gap-5 md:grid-cols-3'>
