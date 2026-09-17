@@ -69,8 +69,20 @@ export default function Navbar(): ReactNode {
   const [activeHref, setActiveHref] = useState<NavItem['href']>('#landing')
   const [pillRect, setPillRect] = useState<{ x: number; width: number } | null>(null)
   const [hasMeasured, setHasMeasured] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const activeIndex = NAV_ITEMS.findIndex((item) => item.href === activeHref)
+
+  useEffect(() => {
+    const handleScroll = (): void => {
+      setIsScrolled(window.scrollY > 12)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
     const sections = NAV_ITEMS.map((item) => document.querySelector(item.href)).filter(
@@ -109,7 +121,14 @@ export default function Navbar(): ReactNode {
       aria-label='Primary'
       className='fixed left-1/2 top-6 z-50 -translate-x-1/2'
     >
-      <div className='flex max-w-[calc(100vw-2rem)] items-center gap-1 overflow-x-auto rounded-full border border-foreground/8 bg-background p-1.5 shadow-sm'>
+      <div
+        className={[
+          'flex max-w-[calc(100vw-2rem)] items-center gap-1 overflow-x-auto rounded-full border p-1.5 shadow-sm backdrop-blur-xl transition-all duration-300',
+          isScrolled
+            ? 'border-foreground/10 bg-background/55 shadow-[0_12px_30px_rgba(0,0,0,0.12)]'
+            : 'border-foreground/8 bg-background/20'
+        ].join(' ')}
+      >
         <ul
           ref={listRef}
           className='relative flex items-center gap-1'

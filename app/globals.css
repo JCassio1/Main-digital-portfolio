@@ -137,30 +137,6 @@
   );
 }
 
-@keyframes lanyard-swing {
-  0% {
-    transform: rotate(8deg);
-  }
-  25% {
-    transform: rotate(-6deg);
-  }
-  50% {
-    transform: rotate(4deg);
-  }
-  75% {
-    transform: rotate(-2.5deg);
-  }
-  100% {
-    transform: rotate(8deg);
-  }
-}
-
-.lanyard-swing {
-  animation: lanyard-swing 4.8s ease-in-out infinite;
-  transform-origin: top center;
-  will-change: transform;
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;

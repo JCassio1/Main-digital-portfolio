@@ -1,45 +1,116 @@
 'use client'
 
-import ProfileCard from '@/components/ProfileCard'
-import { motion } from 'motion/react'
-import { useRef } from 'react'
+import Lanyard from '@/components/Lanyard'
+import { useEffect, useState } from 'react'
+
+const PORTRAIT_SRC = '/joselson-badge-picture.png'
+const NAME = 'Joselson Dias'
+const TITLE = 'Software Engineer @ Your Company'
+
+const CANVAS_WIDTH = 640
+const CANVAS_HEIGHT = 896
+
+function fitFontSize(
+  ctx: CanvasRenderingContext2D,
+  text: string,
+  font: (px: number) => string,
+  startPx: number,
+  maxWidth: number
+): number {
+  let px = startPx
+  ctx.font = font(px)
+  while (px > 14 && ctx.measureText(text).width > maxWidth) {
+    px -= 1
+    ctx.font = font(px)
+  }
+  return px
+}
+
+function useBadgeFrontImage(photoSrc: string, name: string, title: string): string | null {
+  const [dataUrl, setDataUrl] = useState<string | null>(null)
+
+  useEffect(() => {
+    let cancelled = false
+    const img = new Image()
+    img.onload = () => {
+      if (cancelled) return
+
+      const canvas = document.createElement('canvas')
+      canvas.width = CANVAS_WIDTH
+      canvas.height = CANVAS_HEIGHT
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+
+      // Cover-fit the portrait, anchored to the bottom (matches the original avatar crop)
+      const scale = Math.max(CANVAS_WIDTH / img.width, CANVAS_HEIGHT / img.height)
+      const drawWidth = img.width * scale
+      const drawHeight = img.height * scale
+      const dx = (CANVAS_WIDTH - drawWidth) / 2
+      const dy = CANVAS_HEIGHT - drawHeight
+      ctx.fillStyle = '#0a0a0a'
+      ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+      ctx.drawImage(img, dx, dy, drawWidth, drawHeight)
+
+      // Frosted info bar with name + role, echoing the previous card's overlay
+      const barHeight = 168
+      const barX = 28
+      const barY = CANVAS_HEIGHT - barHeight - 28
+      const barWidth = CANVAS_WIDTH - barX * 2
+      const radius = 20
+
+      ctx.save()
+      ctx.beginPath()
+      ctx.moveTo(barX + radius, barY)
+      ctx.arcTo(barX + barWidth, barY, barX + barWidth, barY + barHeight, radius)
+      ctx.arcTo(barX + barWidth, barY + barHeight, barX, barY + barHeight, radius)
+      ctx.arcTo(barX, barY + barHeight, barX, barY, radius)
+      ctx.arcTo(barX, barY, barX + barWidth, barY, radius)
+      ctx.closePath()
+      ctx.fillStyle = 'rgba(10, 10, 10, 0.6)'
+      ctx.fill()
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)'
+      ctx.lineWidth = 1.5
+      ctx.stroke()
+      ctx.restore()
+
+      const maxTextWidth = barWidth - 48
+      ctx.textAlign = 'center'
+
+      const nameFont = (px: number) => `700 ${px}px system-ui, -apple-system, sans-serif`
+      const namePx = fitFontSize(ctx, name, nameFont, 40, maxTextWidth)
+      ctx.font = nameFont(namePx)
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.95)'
+      ctx.fillText(name, CANVAS_WIDTH / 2, barY + 66)
+
+      const titleFont = (px: number) => `500 ${px}px system-ui, -apple-system, sans-serif`
+      const titlePx = fitFontSize(ctx, title, titleFont, 26, maxTextWidth)
+      ctx.font = titleFont(titlePx)
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.75)'
+      ctx.fillText(title, CANVAS_WIDTH / 2, barY + 112)
+
+      setDataUrl(canvas.toDataURL('image/png'))
+    }
+    img.src = photoSrc
+
+    return () => {
+      cancelled = true
+    }
+  }, [photoSrc, name, title])
+
+  return dataUrl
+}
 
 export default function DraggableLanyard() {
-  const constraintsRef = useRef<HTMLDivElement | null>(null)
-  const PORTRAIT_SRC = '/joselson-badge-picture.png'
+  const frontImage = useBadgeFrontImage(PORTRAIT_SRC, NAME, TITLE)
 
   return (
-    <div
-      ref={constraintsRef}
-      className='relative mt-4 flex min-h-[620px] items-start justify-center overflow-visible px-2 pt-8'
-    >
-      <div className='pointer-events-none absolute top-1 left-1/2 h-6 w-6 -translate-x-1/2 rounded-full border border-foreground/25 bg-foreground/10' />
-
-      <motion.div
-        drag
-        dragConstraints={constraintsRef}
-        dragMomentum={false}
-        dragElastic={0.18}
-        whileDrag={{ rotate: 0, scale: 1.02 }}
-        whileTap={{ cursor: 'grabbing' }}
-        className='lanyard-swing relative w-full max-w-[22rem] cursor-grab pt-24'
-      >
-        <div className='pointer-events-none absolute top-0 left-1/2 h-[5.5rem] w-[3px] -translate-x-1/2 bg-linear-to-b from-foreground/40 via-foreground/28 to-foreground/12' />
-        <div className='pointer-events-none absolute top-20 left-1/2 h-6 w-6 -translate-x-1/2 rounded-full border border-foreground/30 bg-background/50' />
-
-        <ProfileCard
-          name='Joselson Dias'
-          title='Software Engineer @ Your Company'
-          handle='joselsondias'
-          status='Open to opportunities'
-          contactText='Connect'
-          avatarUrl={PORTRAIT_SRC}
-          miniAvatarUrl={PORTRAIT_SRC}
-          iconUrl='https://cdn.simpleicons.org/linkedin'
-          grainUrl='https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=1200&q=80'
-          showUserInfo={true}
-        />
-      </motion.div>
+    <div className='relative mx-auto -mt-10 h-[2200px] w-full max-w-[60rem] overflow-visible'>
+      <Lanyard
+        className='h-[1400px] justify-start items-start'
+        frontImage={frontImage}
+        backImage={frontImage}
+        imageFit='cover'
+      />
     </div>
   )
 }

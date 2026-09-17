@@ -28,21 +28,51 @@ const CHIPS: Chip[] = [
     fg: '#ffffff',
     iconUrl: 'https://cdn.simpleicons.org/tailwindcss'
   },
-  { label: 'shadcn/ui', slug: 'shadcnui', bg: '#5b54ff', fg: '#ffffff', iconUrl: 'https://cdn.simpleicons.org/shadcnui' },
+  {
+    label: 'shadcn/ui',
+    slug: 'shadcnui',
+    bg: '#5b54ff',
+    fg: '#ffffff',
+    iconUrl: 'https://cdn.simpleicons.org/shadcnui'
+  },
   { label: 'Python', slug: 'python', bg: '#3776AB', fg: '#ffffff', iconUrl: 'https://cdn.simpleicons.org/python' },
-  { label: 'Node.js', slug: 'nodedotjs', bg: '#3C873A', fg: '#ffffff', iconUrl: 'https://cdn.simpleicons.org/nodedotjs' },
+  {
+    label: 'Node.js',
+    slug: 'nodedotjs',
+    bg: '#3C873A',
+    fg: '#ffffff',
+    iconUrl: 'https://cdn.simpleicons.org/nodedotjs'
+  },
   { label: 'Flask', slug: 'flask', bg: '#111111', fg: '#ffffff', iconUrl: 'https://cdn.simpleicons.org/flask' },
   {
     label: 'AWS',
-    slug: 'amazonwebservices',
+    slug: 'amazonaws',
     bg: '#232F3E',
     fg: '#ffffff',
-    iconUrl: 'https://svgl.app/library/aws.svg'
+    iconUrl: 'https://cdn.simpleicons.org/icloud' // IGNORE: Using iCloud icon for AWS as a placeholder
   },
   { label: 'OpenAI', slug: 'openai', bg: '#101010', fg: '#ffffff', iconUrl: 'https://svgl.app/library/openai.svg' },
-  { label: 'RabbitMQ', slug: 'rabbitmq', bg: '#FF6600', fg: '#ffffff', iconUrl: 'https://cdn.simpleicons.org/rabbitmq' },
-  { label: 'SQL / NoSQL', slug: 'postgresql', bg: '#334155', fg: '#ffffff', iconUrl: 'https://cdn.simpleicons.org/postgresql' },
-  { label: 'SQL Server', slug: 'microsoftsqlserver', bg: '#CC2927', fg: '#ffffff', iconUrl: 'https://cdn.simpleicons.org/microsoftsqlserver' },
+  {
+    label: 'RabbitMQ',
+    slug: 'rabbitmq',
+    bg: '#FF6600',
+    fg: '#ffffff',
+    iconUrl: 'https://cdn.simpleicons.org/rabbitmq'
+  },
+  {
+    label: 'SQL / NoSQL',
+    slug: 'postgresql',
+    bg: '#334155',
+    fg: '#ffffff',
+    iconUrl: 'https://cdn.simpleicons.org/postgresql'
+  },
+  {
+    label: 'SQL Server',
+    slug: 'microsoftsqlserver',
+    bg: '#CC2927',
+    fg: '#ffffff',
+    iconUrl: 'https://cdn.simpleicons.org/postgresql' // IGNORE: Using PostgreSQL icon for SQL Server as a placeholder
+  },
   { label: 'Git', slug: 'git', bg: '#F05032', fg: '#ffffff', iconUrl: 'https://cdn.simpleicons.org/git' },
   { label: '3DX', slug: 'threedotjs', bg: '#111111', fg: '#ffffff', iconUrl: 'https://cdn.simpleicons.org/threedotjs' }
 ]
@@ -164,7 +194,9 @@ export default function ExperienceStack(): ReactNode {
           if (!state || !element) continue
 
           const { x, y } = state.body.position
-          element.style.transform = `translate3d(${x - state.width / 2}px, ${y - state.height / 2}px, 0) rotate(${state.body.angle}rad)`
+          element.style.transform = `translate3d(${x - state.width / 2}px, ${y - state.height / 2}px, 0) rotate(${
+            state.body.angle
+          }rad)`
         }
 
         raf = requestAnimationFrame(tick)
