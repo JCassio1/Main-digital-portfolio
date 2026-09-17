@@ -36,13 +36,13 @@ export default function Contact() {
                 aria-hidden='true'
               />
             </a>
-            <div className='basis-full sm:basis-auto'>
+            <div className='flex basis-full justify-center sm:basis-auto sm:block'>
               <ContactButton />
             </div>
           </div>
         </div>
 
-        <div className='mt-12 flex w-full max-w-4xl flex-col items-center gap-8'>
+        <div className='mt-12 flex w-full max-w-4xl flex-col items-center gap-[10px]'>
           <article className='w-full max-w-2xl text-center'>
             <p className='text-xs font-medium tracking-[0.15em] text-foreground/70 uppercase'>Profile card</p>
             <p className='mt-3 text-sm leading-relaxed text-foreground/75'>
@@ -63,7 +63,7 @@ export default function Contact() {
             </a>
           </article>
 
-          <article className='w-full max-w-2xl'>
+          <article className='w-full max-w-none overflow-visible'>
             <DraggableLanyard />
           </article>
         </div>
