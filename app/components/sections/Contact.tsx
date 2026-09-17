@@ -36,7 +36,7 @@ export default function Contact() {
                 aria-hidden='true'
               />
             </a>
-            <div className='basis-full sm:basis-auto'>
+            <div className='flex basis-full justify-center sm:basis-auto sm:block'>
               <ContactButton />
             </div>
           </div>
