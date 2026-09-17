@@ -61,7 +61,7 @@ export default function Solvables() {
           ))}
         </div>
 
-        <div className='relative left-1/2 -mt-8 w-screen -translate-x-1/2 sm:-mt-28'>
+        <div className='relative -mx-6 -mt-8 w-[calc(100%+3rem)] sm:left-1/2 sm:mx-0 sm:-mt-28 sm:w-screen sm:-translate-x-1/2'>
           <TextLoop
             text='Automation ✦ Refactoring ✦ Security ✦ Reliability'
             separator='✦'

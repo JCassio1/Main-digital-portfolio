@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     title: 'Joselson Dias Portfolio',
     description: 'Digital Portfolio of Joselson Dias',
     type: 'website',
-    images: ['/opengraph-image']
+    images: ['/joselson-focus.webp']
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Joselson Dias Portfolio',
     description: 'Digital Portfolio of Joselson Dias',
-    images: ['/twitter-image']
+    images: ['/joselson-focus.webp']
   }
 }
 
