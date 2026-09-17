@@ -6,19 +6,22 @@ const WORK_CARDS = [
     title: 'Kafka Docker',
     detail: 'An event-driven architecture built with Ruby on Rails, Kafka, Postgres, and Docker.',
     imageSrc: '/kafka-docker.jpg',
-    caption: 'Kafka Docker'
+    caption: 'Kafka Docker',
+    repoUrl: 'https://github.com/JCassio1/rails-kafka-order-pipeline'
   },
   {
     title: 'Password Recovery',
     detail: 'A personal password-strength and recovery tool for applications I build and maintain.',
     imageSrc: '/password-recovery.png',
-    caption: 'Password Recovery'
+    caption: 'Password Recovery',
+    repoUrl: 'https://github.com/JCassio1/password-recovery-tool'
   },
   {
     title: 'Debughub',
     detail: 'A VS Code extension for managing debuggers easily while keeping development workflows focused.',
     imageSrc: '/debughub.png',
-    caption: 'Debughub'
+    caption: 'Debughub',
+    repoUrl: 'https://github.com/JCassio1/DebugHub'
   }
 ] as const
 
@@ -57,7 +60,7 @@ export default function Work() {
         </div>
 
         <div className='mt-14 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-6'>
-          {WORK_CARDS.map(({ title, detail, imageSrc, caption }) => (
+          {WORK_CARDS.map(({ title, detail, imageSrc, caption, repoUrl }) => (
             <article
               key={title}
               className='flex flex-col gap-5'
@@ -77,6 +80,19 @@ export default function Work() {
               <div>
                 <h3 className='text-xl font-medium text-white'>{title}</h3>
                 <p className='mt-2 text-base leading-relaxed text-white/60'>{detail}</p>
+                <a
+                  href={repoUrl}
+                  target='_blank'
+                  rel='noreferrer'
+                  aria-label={`View ${title} on GitHub`}
+                  className='focus-ring group mt-4 inline-flex items-center gap-1 text-sm font-medium text-[#a208ea] transition-colors hover:text-[#c04dff]'
+                >
+                  View on GitHub
+                  <ArrowUpRight
+                    className='h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5'
+                    aria-hidden='true'
+                  />
+                </a>
               </div>
             </article>
           ))}
