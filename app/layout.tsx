@@ -19,6 +19,18 @@ export const metadata: Metadata = {
   description: 'Digital Portfolio of Joselson Dias',
   icons: {
     icon: '/icon.svg'
+  },
+  openGraph: {
+    title: 'Joselson Dias Portfolio',
+    description: 'Digital Portfolio of Joselson Dias',
+    type: 'website',
+    images: ['/opengraph-image']
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Joselson Dias Portfolio',
+    description: 'Digital Portfolio of Joselson Dias',
+    images: ['/twitter-image']
   }
 }
 
