@@ -10,7 +10,10 @@ const PORTRAIT_HOVER_SRC = '/joselson-not-focus.webp'
 
 export function Hero(): ReactNode {
   return (
-    <section className='relative w-full overflow-x-clip'>
+    <section
+      id='landing'
+      className='relative w-full overflow-x-clip'
+    >
       <div className='pointer-events-none absolute inset-0 z-0 opacity-70'>
         <GradientWaves
           horizonColor='#080aea'
