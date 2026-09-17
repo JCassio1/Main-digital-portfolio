@@ -29,7 +29,7 @@ export function Hero(): ReactNode {
               Hey , I&rsquo;m Joselson
             </p>
             <h1 className='text-[2.75rem] font-medium leading-[1.05] tracking-tight text-foreground md:text-[2.5rem] lg:text-[3.65rem]'>
-              <span className='block whitespace-nowrap'>Software Engineer</span>
+              <span className='block'>Software Engineer</span>
             </h1>
             <p className='max-w-[34ch] text-[22px] leading-[1.4] tracking-tight text-foreground/65'>
               I turn manual, error-prone work into automated systems your team can trust. All documented well enough to

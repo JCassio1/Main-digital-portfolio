@@ -20,7 +20,7 @@ export default function OpenGraphImage() {
           padding: '72px',
           background: 'linear-gradient(135deg, #0f172a 0%, #111827 100%)',
           color: '#e2e8f0',
-          fontFamily: 'Inter, Arial, sans-serif'
+          fontFamily: 'Geist, Geist Sans, Arial, sans-serif'
         }}
       >
         <div
