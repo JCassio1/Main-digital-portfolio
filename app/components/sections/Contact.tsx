@@ -14,6 +14,9 @@ export default function Contact() {
           <h2 className='text-[2rem] leading-tight font-medium tracking-tight sm:text-[2.8rem]'>
             Let&rsquo;s find our synergy?
           </h2>
+          <p className='mt-4 text-sm italic text-foreground/65'>
+            Found a bug? That&apos;s not a bug, that&apos;s job security.
+          </p>
 
           <div className='mt-7 flex flex-wrap items-center justify-center gap-3 sm:flex-nowrap'>
             <a
@@ -61,8 +64,6 @@ export default function Contact() {
           </article>
 
           <article className='w-full max-w-2xl'>
-            <p className='text-xs font-medium tracking-[0.15em] text-foreground/70 uppercase'>Lanyard</p>
-            <p className='mt-3 text-sm text-foreground/75'>Drag the lanyard for a closer look.</p>
             <DraggableLanyard />
           </article>
         </div>

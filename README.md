@@ -1,5 +1,11 @@
 ## Joselson Dias digital portfolio
 
+## Figma
+
+This portfolio has been designed on figma and planned on a knanban board before writing a single line of code.
+
+![Figma planning board](./public/figma-plan.png)
+
 ## Run the project
 
 ### Option 1: Use your debugger (recommended)
